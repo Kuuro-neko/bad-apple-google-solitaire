@@ -9,7 +9,6 @@ pip install -r requirements.txt
 ### Libraries used:
 
 - **opencv-python** (video processing)
-- **numpy** (video processing)
 - **flask** (web server to serve the frames)
 - **flask-cors** (allow cross origin requests)
 

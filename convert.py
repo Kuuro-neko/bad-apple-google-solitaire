@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 import json
 
 # Set the target size, don't forget to keep the aspect ratio if you change this (64/48) or it will look weird
