@@ -37,7 +37,7 @@ python3 convert.py
 python3 server.py
 ```
 
-4. Open a google solitaire game
+4. Start a [Google Solitaire](https://www.google.com/search?q=google+solitaire) game
 
 5. Open the console and paste the content of `display.js`. Then press enter
 
