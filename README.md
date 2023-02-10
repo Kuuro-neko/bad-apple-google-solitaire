@@ -1,8 +1,17 @@
-# bad-apple-google-solitaire
+# Bad Apple on Google Solitaire
 
 ## Installation
 
+Clone the repo
+
 ```bash
+git clone https://github.com/Kuuro-neko/bad-apple-google-solitaire.git
+```
+
+Install the libraries
+
+```bash
+cd bad-apple-google-solitaire
 pip install -r requirements.txt
 ```
 
@@ -33,5 +42,9 @@ python3 server.py
 5. Open the console and paste the content of `display.js`. Then press enter
 
 6. Enjoy
+
+# 
+
+[Video link](https://youtu.be/OSBkggpfpG4) of this running in case they ever update their game
 
 I runned it at 4 fps to ensure that it runs smoothly for the video, but you can try to increase it in `display.js`
