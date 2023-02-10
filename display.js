@@ -1,6 +1,9 @@
 // Card size. Keep the ratio if you want to change it and keep the same look (or do whatever you want, it may also be cool with square cards)
 var cardWidth = 19;
 var cardHeight = 26;
+// Framerate
+var framerate = 4;
+
 
 async function get_frame_json(frame) {
     // json from http://localhost:5000/frame/i where i is the frame number. Run serve_frames.py to get the json files
@@ -119,4 +122,4 @@ var video = setInterval(async function() {
     if (frame == nb_frames - 1) {
         clearInterval(video);
     }
-}, 1000/4);
+}, 1000/framerate);

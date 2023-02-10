@@ -34,3 +34,5 @@ python3 server.py
 5. Open the console and paste the content of `display.js`. Then press enter
 
 6. Enjoy
+
+I runned it at 4 fps to ensure that it runs smoothly for the video, but you can try to increase it in `display.js`
