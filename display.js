@@ -1,13 +1,27 @@
-var iframe = document.getElementsByClassName('qePvpc')[0];
-
-var game = iframe.contentWindow.document;
-
-// Too lazy to generalize this
+// Card size. Keep the ratio if you want to change it and keep the same look (or do whatever you want, it may also be cool with square cards)
 var cardWidth = 19;
 var cardHeight = 26;
-var nb_frames = 6751;
-var pixelX = 64;
-var pixelY = 48;
+
+async function get_frame_json(frame) {
+    // json from http://localhost:5000/frame/i where i is the frame number. Run serve_frames.py to get the json files
+    var url = 'http://localhost:5000/frame/' + frame;
+    var data = [];
+    try{
+        var response = await fetch(url);
+        data = await response.json();
+    } catch (e) {
+        console.log(e);
+    }
+    return data;
+}
+
+var iframe = document.getElementsByClassName('qePvpc')[0];
+var game = iframe.contentWindow.document;
+
+// Get a frame to setup the size of the solitaire board
+var frame = await get_frame_json(0);
+var pixelX = frame[0].length;
+var pixelY = frame.length;
 
 var width = pixelX * cardWidth;
 var height = pixelY * cardHeight;
@@ -29,7 +43,7 @@ function new_pixel(x, y, card) {
     new_card.style.left = (x*cardWidth) + 'px';
     new_card.style.top = (y*cardHeight) + 'px';
     var image = new Image();
-    image.src = 'https://i.imgur.com/iG9RpNc.png'; // To-do : replace the imgur link with a localhost:5000/img link
+    image.src = 'http://localhost:5000/static/card.png';
 
     var canvas = game.createElement('canvas');
     canvas.className = 'card-canvas';
@@ -41,19 +55,6 @@ function new_pixel(x, y, card) {
     new_card.appendChild(canvas);
     new_card.className = 'card card-' + x + '-' + y;
     return new_card;
-}
-
-async function get_frame_json(frame) {
-    // json from http://localhost:5000/frame/i where i is the frame number. Run serve_frames.py to get the json files
-    var url = 'http://localhost:5000/frame/' + frame;
-    var data = [];
-    try{
-        var response = await fetch(url);
-        data = await response.json();
-    } catch (e) {
-        console.log(e);
-    }
-    return data;
 }
 
 function initial_clear() {
@@ -95,12 +96,14 @@ function render_difference(difference) {
     }
 }
 
+var response = await fetch('http://localhost:5000/frame_count');
+var nb_frames = await response.json();
 var frame = 0;
 var current_frame = [];
 var previous_frame = [];
 var difference = { "added": [], "removed": [] };
 
-//  BAD APPLE
+//  BAD APPLE !!!!!
 var video = setInterval(async function() {
     difference = { "added": [], "removed": [] };
     current_frame = await get_frame_json(frame);

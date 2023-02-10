@@ -2,15 +2,16 @@ import cv2
 import numpy as np
 import json
 
+# Set the target size, don't forget to keep the aspect ratio if you change this (64/48) or it will look weird
+target_height = 48
+target_width = 64
+
 # Open the video
 cap = cv2.VideoCapture('bad-apple.mp4')
 
 # Get the video properties
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-
-target_height = 48
-target_width = 64
 
 # Create the frames folder
 import os

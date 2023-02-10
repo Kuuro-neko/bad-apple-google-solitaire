@@ -1,18 +1,36 @@
 # bad-apple-google-solitaire
 
-## Requirements
+## Installation
 
-opencv-python
-numpy
-flask-cors
+```bash
+pip install -r requirements.txt
+```
 
-## How to bad apple on google solitaire with this 
+### Libraries used:
 
-- download bad apple
-- run convert.py
-- run server
-- start a google solitaire game
-- open console, paste run display.js content
-- enjoy (it runs at 4 fps btw)
+- **opencv-python** (video processing)
+- **numpy** (video processing)
+- **flask** (web server to serve the frames)
+- **flask-cors** (allow cross origin requests)
 
-Will do something better looking later, I promise
+## How to run it
+
+1. Download the video and put it in the root folder named `bad-apple.mp4`
+
+2. Run `convert.py` to convert the video to frames
+
+```bash	
+python3 convert.py
+```
+
+3. Run `server.py` to start the server
+
+```bash
+python3 server.py
+```
+
+4. Open a google solitaire game
+
+5. Open the console and paste the content of `display.js`. Then press enter
+
+6. Enjoy
