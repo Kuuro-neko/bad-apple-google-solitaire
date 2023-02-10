@@ -31,10 +31,10 @@ pip install -r requirements.txt
 python3 convert.py
 ```
 
-3. Run `server.py` to start the server
+3. Run `serve_frames.py` to start the server
 
 ```bash
-python3 server.py
+python3 serve_frames.py
 ```
 
 4. Start a [Google Solitaire](https://www.google.com/search?q=google+solitaire) game
