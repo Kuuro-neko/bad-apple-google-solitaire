@@ -1,5 +1,11 @@
 # Bad Apple on Google Solitaire
 
+[Video link](https://youtu.be/OSBkggpfpG4) of this running in case they ever update their game
+
+I runned it at 4 fps to ensure that it runs smoothly for the video, but you can try to increase it in `display.js`
+
+---
+
 ## Installation
 
 Clone the repo
@@ -42,9 +48,3 @@ python3 serve_frames.py
 5. Open the console and paste the content of `display.js`. Then press enter
 
 6. Enjoy
-
-# 
-
-[Video link](https://youtu.be/OSBkggpfpG4) of this running in case they ever update their game
-
-I runned it at 4 fps to ensure that it runs smoothly for the video, but you can try to increase it in `display.js`
