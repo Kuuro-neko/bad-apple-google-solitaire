@@ -1,6 +1,6 @@
 # Bad Apple on Google Solitaire
 
-[Video link]([https://youtu.be/OSBkggpfpG4](https://youtu.be/gR6i8ZG0Jl0)) of this running in case they ever update their game
+[Video link]([https://youtu.be/OSBkggpfpG4](https://youtu.be/gR6i8ZG0Jl0) of this running in case they ever update their game
 
 I runned it at 4 fps to ensure that it runs smoothly for the video, but you can try to increase it in `display.js`
 
