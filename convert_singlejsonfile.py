@@ -1,12 +1,18 @@
 import cv2
 import json
+import sys
+
+if (len(sys.argv) != 4):
+    print("Usage: python3 convert_singlejsonfile.py <target_height> <target_width> <video_path>")
+    sys.exit(1)
+
 
 # Set the target size, don't forget to keep the aspect ratio if you change this (64/48) or it will look weird
-target_height = 48
-target_width = 64
+target_height = int(sys.argv[1])
+target_width = int(sys.argv[2])
 
 # Open the video
-cap = cv2.VideoCapture('bad-apple.mp4')
+cap = cv2.VideoCapture(sys.argv[3])
 
 # Get the video properties
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -19,6 +25,9 @@ if not os.path.exists('frames'):
 
 # Create the frames
 i = 0
+
+# Create a list to store the frames
+frames = []
 
 while(cap.isOpened()):
     ret, frame = cap.read()
@@ -43,11 +52,13 @@ while(cap.isOpened()):
         for k in range(len(jsonf[j])):
             jsonf[j][k] = 1 if jsonf[j][k] >= 128 else 0
 
-    # Save the image as a JSON file
-    with open(f'frames/frame_{i}.json', 'w') as f:
-        json.dump(jsonf, f)
+    # Save the frame
+    frames.append(jsonf)
 
     i += 1
+
+with open(f'frames/frames.json', 'w') as f:
+        json.dump(frames, f)
 
 cap.release()
 cv2.destroyAllWindows()

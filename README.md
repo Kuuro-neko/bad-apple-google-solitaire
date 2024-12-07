@@ -48,3 +48,7 @@ python3 serve_frames.py
 5. Open the console and paste the content of `display.js`. Then press enter
 
 6. Enjoy
+
+---	
+
+You can also use `convert_singlejsonfile.py <width> <heigth> <video path>` to convert the video to a single json file for any other uses.
