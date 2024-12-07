@@ -3,13 +3,13 @@ import json
 import sys
 
 if (len(sys.argv) != 4):
-    print("Usage: python3 convert_singlejsonfile.py <target_height> <target_width> <video_path>")
+    print("Usage: python3 convert_singlejsonfile.py <target_width> <target_height> <video_path>")
     sys.exit(1)
 
 
 # Set the target size, don't forget to keep the aspect ratio if you change this (64/48) or it will look weird
-target_height = int(sys.argv[1])
-target_width = int(sys.argv[2])
+target_height = int(sys.argv[2])
+target_width = int(sys.argv[1])
 
 # Open the video
 cap = cv2.VideoCapture(sys.argv[3])
